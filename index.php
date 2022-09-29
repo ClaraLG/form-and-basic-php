@@ -14,7 +14,7 @@
     
         <link rel="stylesheet" href="CSS\form_styles.css" type="text/css">
 
-        <!-- Buscar qué otras meta tags añadir. Revisar sintaxis de las actuales -->
+        <!-- TODO Buscar qué otras meta tags añadir. Revisar sintaxis de las actuales -->
     
     </head>
 
@@ -43,12 +43,20 @@
 
                     <h2>Rellena el formulario de nuevo para generar otra actividad</h2>
 
-                    <!-- PHP que muestra lo rellenado en el form 
+                    <!-- PHP que muestra lo rellenado en el form-->
 
-                    <?php echo htmlspecialchars($_POST['nombre']); ?>
-                    ...
+                    <?php
 
-                    -->
+                    if(isset ($_POST["createActivity"]))
+                    {
+                        echo $_POST["title"] . "<br />";
+                        echo $_POST["date"] . "<br />";
+                        echo $_POST["type"] . "<br />";
+                        echo $_POST["price"];
+                    }
+                    
+
+                    ?>
 
                     <span class="primaryButton">Refrescar</span>
 
@@ -63,12 +71,11 @@
                 <div class="rectangularPictures">
                     <img src="imgs/cine.jpg">
                 </div>
-                <div class="form">
-
-                    <!-- Añadir validación con JS para que no se puedan poner campos vacíos -->
-        
-                </div>
             </div>
+        </div>
+
+        <div class="form">
+                <?php include "formulario.html" ?>
         </div>
 
 
