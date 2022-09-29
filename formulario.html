@@ -1,0 +1,42 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" href="CSS\form_styles.css" type="text/css">
+    </head>
+
+    <body>
+
+        <form role="form" method="post" action="index.php">
+
+            <input type="text" id="inputTitle" name="title" placeholder="Título de la actividad">
+
+            <input type="date" id="inputDate" name="date" placeholder="Fecha">
+
+            <select name="type" id="selectType">
+                <option value="" selected>Selecciona el tipo de actividad</option>
+                <option value="Música">Música</option>
+                <option value="Cine">Cine</option>
+                <option value="Comida">Comida</option>
+                <option value="Copas">Copas</option>
+                <option value="Cultura">Cultura</option>
+                <option value="Viajes">Viajes</option>
+            </select>
+
+            <input type="radio" name="price" id="freeEntry" value="Gratis" checked>
+            <label for="freeEntry">
+                Gratis
+            </label>   
+
+            <input type="radio" name="price" id="paidEntry" value="De pago">
+            <label for="paidEntry">
+                De pago
+            </label>  
+
+            <input type="submit" value="Crear Actividad" name="createActivity"/>
+
+            <!-- TODO Añadir validación con JS para que no se puedan poner campos vacíos -->
+
+        </form>
+
+    </body>
+</html>
