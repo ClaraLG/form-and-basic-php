@@ -1,25 +1,31 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="es">
     <head>
+        <title>Formulario</title>
+
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+
         <link rel="stylesheet" href="CSS\form_styles.css" type="text/css">
     </head>
 
     <body>
 
-        <form role="form" method="post" action="index.php">
+        <form role="form" method="post" action="index.php" class="formBox">
 
             <input type="text" id="inputTitle" name="title" placeholder="Título de la actividad">
 
             <input type="date" id="inputDate" name="date" placeholder="Fecha">
 
+            <input type="text" id="inputCity" name="city" placeholder="Ciudad">
+
             <select name="type" id="selectType">
                 <option value="" selected>Selecciona el tipo de actividad</option>
-                <option value="Música">Música</option>
-                <option value="Cine">Cine</option>
-                <option value="Comida">Comida</option>
-                <option value="Copas">Copas</option>
-                <option value="Cultura">Cultura</option>
-                <option value="Viajes">Viajes</option>
+                <option value="musica">Música</option>
+                <option value="cine">Cine</option>
+                <option value="comida">Comida</option>
+                <option value="copas">Copas</option>
+                <option value="cultura">Cultura</option>
+                <option value="viajes">Viajes</option>
             </select>
 
             <input type="radio" name="price" id="freeEntry" value="Gratis" checked>
