@@ -1,5 +1,24 @@
-<html>
+<!DOCTYPE html>
 
+<?php require "clases.php"; ?>
+
+<?php 
+
+    if(isset ($_POST["createActivity"]) ||
+    $_SERVER['REQUEST_METHOD'] === 'POST') 
+    {
+        $formResults = new FormResults (
+        $_POST["title"],
+        $_POST["date"],
+        $_POST["city"],
+        $_POST["type"],
+        $_POST["price"],
+        );
+    }
+
+?>
+
+<html lang="es">
     <head>
 
         <title>Moc</title>
@@ -42,54 +61,46 @@
                     <!-- Texto que se muestra cuando se ha rellenado el formulario -->
 
                     <h2>Rellena el formulario de nuevo para generar otra actividad</h2>
-
-                    <!-- PHP que muestra lo rellenado en el form-->
-
-                    <?php
-
-                    if(isset ($_POST["createActivity"]))
-                    {
-                        echo $_POST["title"] . "<br />";
-                        echo $_POST["date"] . "<br />";
-                        echo $_POST["type"] . "<br />";
-                        echo $_POST["price"];
-                    }
                     
+                    <?php if(isset ($formResults)): ?>
 
-                    ?>
+                    <ul class="formListResults">
+                        <li class="formResult"><?php echo $formResults->title ?></li>
+                        <li class="formResult"><?php echo date("d/m/Y", strtotime($formResults->date)) ?></li>
+                        <li class="formResult"><?php echo $formResults->city ?></li>
+                        <li class="formResult"><?php echo $formResults->price ?></li>
+                    </ul>
 
-                    <span class="primaryButton">Refrescar</span>
+                    <?php endif; ?>
 
                 </div>
             </div>
 
             <div class="backgroundPictures">
-                <div class="squarePictures">
-                    <img src="imgs/cine2.jpg">
-                    <img src="imgs/cine3.jpg">
+                <div class="formulario">
+                    <?php include "formulario.html" ?>
                 </div>
-                <div class="rectangularPictures">
-                    <img src="imgs/cine.jpg">
-                </div>
+                <?php if(isset ($formResults)): ?>
+                    <div class="squarePictures">
+                        <img src="imgs/<?php echo $formResults->type ?>2.jpg" alt="actividad cultural">
+                        <img src="imgs/<?php echo $formResults->type ?>3.jpg" alt="actividad cultural">
+                    </div>
+                    <div class="rectangularPictures">
+                        <img src="imgs/<?php echo $formResults->type ?>.jpg" alt="actividad cultural">
+                    </div>
+                <?php endif; ?>
             </div>
+
         </div>
 
-        <div class="form">
-                <?php include "formulario.html" ?>
-        </div>
-
-
-        <!-- PHP que cambia las imágenes según lo seleccionado
         
-        ...
 
-        -->
 
         <footer>
 
             <p>Landing page created by Clara Garnes García - 2022</p>
-            <p>Check the code in <u><a href="#">GitHub</a></u></p>
-            <a href="https://github.com/ClaraLG"><img src="/imgs/github.png"></a>
+            <p>Check the code in <u><a href="https://github.com/ClaraLG/form-and-basic-php">GitHub</a></u></p>
+            <a href="https://github.com/ClaraLG"><img src="imgs/github.png" class="logoRRSS" alt="github logo"></a>
 
         </footer>
 
