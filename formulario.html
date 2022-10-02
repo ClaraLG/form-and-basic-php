@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
+    
     <head>
         <title>Formulario</title>
 
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 
         <link rel="stylesheet" href="CSS\form_styles.css" type="text/css">
+
     </head>
 
     <body>
 
         <form role="form" method="post" action="index.php" class="formBox">
 
-            <input type="text" id="inputTitle" name="title" placeholder="Título de la actividad">
+            <input type="text" id="inputTitle" class="field" name="title" placeholder="Título de la actividad" 
+            required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')" 
+            oninput="this.setCustomValidity('')">
 
-            <input type="date" id="inputDate" name="date" placeholder="Fecha">
+            <input type="date" id="inputDate" class="field" name="date" placeholder="Fecha"  
+            required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')" 
+            oninput="this.setCustomValidity('')">
 
-            <input type="text" id="inputCity" name="city" placeholder="Ciudad">
+            <input type="text" id="inputCity" class="field" name="city" placeholder="Ciudad" 
+            required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')" 
+            oninput="this.setCustomValidity('')">
 
-            <select name="type" id="selectType">
+            <select name="type" id="selectType" class="field" 
+            required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')" 
+            oninput="this.setCustomValidity('')">
                 <option value="" selected>Selecciona el tipo de actividad</option>
                 <option value="musica">Música</option>
                 <option value="cine">Cine</option>
@@ -27,22 +37,25 @@
                 <option value="cultura">Cultura</option>
                 <option value="viajes">Viajes</option>
             </select>
+            
+            <div class="radioOpt">
+                <input type="radio" name="price" id="freeEntry" value="Gratis" checked>
+                <label for="freeEntry">
+                    Gratis
+                </label>
+            </div>  
 
-            <input type="radio" name="price" id="freeEntry" value="Gratis" checked>
-            <label for="freeEntry">
-                Gratis
-            </label>   
+            <div class="radioOpt">
+                <input type="radio" name="price" id="paidEntry" value="De pago">
+                <label for="paidEntry">
+                    De pago
+                </label>  
+            </div>
 
-            <input type="radio" name="price" id="paidEntry" value="De pago">
-            <label for="paidEntry">
-                De pago
-            </label>  
-
-            <input type="submit" value="Crear Actividad" name="createActivity"/>
-
-            <!-- TODO Añadir validación con JS para que no se puedan poner campos vacíos -->
+            <input type="submit" value="Crear Actividad" name="createActivity" class="btn"/>
 
         </form>
 
     </body>
+
 </html>
