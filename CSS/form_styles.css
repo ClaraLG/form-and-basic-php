@@ -206,7 +206,7 @@ footer {
     }
 
     .banner .box.images {
-        height: auto;
+        height: 1000px;
     }
 }
 
@@ -228,11 +228,11 @@ footer {
     }
     
     .banner .box.content {
-        height: 80vh;
+        height: 50vh;
     }
 
     .contentBox {
-        margin: 50px 60px 20px;
+        margin: 0px;
     }
     
     .images .activityImg {
