@@ -34,7 +34,7 @@
     
         <meta name="keywords" content="actividades culturales, formulario, comunidad">
 
-        <meta name=”robots” content="index, follow">
+        <meta name="robots” content="index, follow">
     
         <link rel="stylesheet" href="CSS\form_styles.css" type="text/css">
 
