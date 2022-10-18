@@ -2,9 +2,20 @@
 
 <?php require "clases.php"; ?>
 
-<?php 
+<?php
 
-    if(isset ($_POST["createActivity"]) ||
+    session_start();
+    
+    if (!isset($_SESSION["usuario"])) {
+        header("Location: login.php");
+        exit();
+    }
+
+    if (!isset($_SESSION["listado_actividades"])) {
+        $_SESSION["listado_actividades"] = array();
+    }
+
+    if (isset ($_POST["createActivity"]) ||
     $_SERVER['REQUEST_METHOD'] === 'POST') 
     {
         $formResults = new FormResults (
@@ -14,6 +25,8 @@
         $_POST["type"],
         $_POST["price"],
         );
+
+        array_push($_SESSION["listado_actividades"], serialize($formResults));
     }
 
 ?>
@@ -22,24 +35,26 @@
     
     <head>
 
-        <title>Moc</title>
+        <title>Mocc. | Movimientos Culturales en la Comunidad</title>
     
         <meta charset="utf-8">
 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+   
         <meta name="description" content="Genera las próximas actividades culturales que tendrán lugar en nuestra comunidad.">
 
         <meta name="title" content="Moc - Movimientos culturales en la comunidad">
     
         <meta name="keywords" content="actividades culturales, formulario, comunidad">
 
-        <meta name="robots” content="index, follow">
+        <meta name="robots" content="index, follow">
     
-        <link rel="stylesheet" href="CSS\form_styles.css" type="text/css">
-
-        <!-- TODO Buscar qué otras meta tags añadir. Revisar sintaxis de las actuales -->
+        <link rel="stylesheet" href="CSS/form_styles.css" type="text/css">
     
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        
     </head>
 
     <body>
@@ -49,7 +64,11 @@
             <div class="box content">
 
                 <header>
-                    <a href="#" class="logo">Moc.</a>
+                    <a href="#" class="logo">Mocc.</a>
+                    <div id="userSession">
+                        <?php echo $_SESSION["usuario"]?>
+                        <a href="logout.php">Salir</a>
+                    </div>
                 </header>
 
                 <div class="contentBox">
@@ -94,8 +113,32 @@
                     <div class="activityImg">
                         <img src="imgs/<?php echo $formResults->type ?>.jpg">
                     </div>
-                    <?php endif; ?>
+                <?php endif; ?>
             </div>
+
+        </section>
+
+        <section class="activitiesList">
+
+            <h2>Agenda cultural</h2>
+
+            <?php foreach($_SESSION["listado_actividades"] as $actividad_serialized): 
+                $actividad = unserialize($actividad_serialized);
+                ?>
+                    <div class="activityBox">
+                        <img src="imgs/<?php echo $actividad->type ?>.jpg">
+
+                        <ul class="formListResults">
+                            <li class="formResult">Título de la actividad: <?php echo $actividad->title ?></li>
+                            <hr/>
+                            <li class="formResult">Fecha: <?php echo date("d/m/Y", strtotime($actividad->date)) ?></li>
+                            <hr/>
+                            <li class="formResult">Ciudad: <?php echo $actividad->city ?></li>
+                            <hr/>
+                            <li class="formResult">Precio: <?php echo $actividad->price ?></li>
+                        </ul>
+                    </div>
+            <?php endforeach; ?>
 
         </section>
 
@@ -107,6 +150,9 @@
             
         </footer>
 
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
     </body>
 
 </html>
+
