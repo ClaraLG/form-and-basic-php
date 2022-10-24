@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+    <head>
+        <title>Formulario</title>
+
+        <meta charset="utf-8">
+        
+        <meta name="robots" content="noindex, nofollow">
+
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+    </head>
+
+    <body>
+
+        <form role="form" method="post" action="index.php" class="row g-3">
+
+            <div class="col-12">
+                <input type="text" id="inputTitle" class="form-control" name="title" placeholder="Título de la actividad" 
+                required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')" 
+                oninput="this.setCustomValidity('')">
+            </div>
+            
+            <div class="col-12">
+                <input type="date" id="inputDate" class="form-control" name="date" placeholder="Fecha"  
+                required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')" 
+                oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-12">
+                <input type="text" id="inputCity" class="form-control" name="city" placeholder="Ciudad" 
+                required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')" 
+                oninput="this.setCustomValidity('')">
+            </div>
+            <div class="col-12">
+                <select name="type" id="selectType" class="form-select" 
+                required oninvalid="this.setCustomValidity('Este campo no puede estar vacío')" 
+                oninput="this.setCustomValidity('')">
+                    <option value="" selected>Selecciona el tipo de actividad</option>
+                    <option value="musica">Música</option>
+                    <option value="cine">Cine</option>
+                    <option value="comida">Comida</option>
+                    <option value="copas">Copas</option>
+                    <option value="cultura">Cultura</option>
+                    <option value="viajes">Viajes</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <input type="radio" name="price" class="form-check-input" id="freeEntry" value="Gratis" checked>
+                <label for="freeEntry">
+                    Gratis
+                </label>
+            </div>
+            <div class="col-6">
+                <input type="radio" name="price" class="form-check-input" id="paidEntry" value="De pago">
+                <label for="paidEntry">
+                    De pago
+                </label>
+            </div>
+            <div class="col-12">
+                <button type="submit" value="Crear Actividad" name="createActivity" class="btn btn-primary">Crear actividad</button>
+            </div>
+
+        </form>
+
+    </body>
+
+</html>

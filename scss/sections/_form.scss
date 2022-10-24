@@ -1,0 +1,29 @@
+
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+.col-md-6#formSection {
+    @include gradient;
+    padding: 0;
+}
+
+.formulario {
+    background: $white;
+    padding: 20px;
+    @include radius;
+    @include centered;
+}
+
+#formImgs {
+    @extend .formulario;
+    position: absolute;
+    z-index: 1;
+    margin: 40px;
+    top: 20%;
+}
+
+@media (max-width: $layout-breakpoint-small) {
+    #formImgs {
+        top: 90%;
+    }
+}

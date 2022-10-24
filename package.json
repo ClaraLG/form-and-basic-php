@@ -1,0 +1,32 @@
+{
+  "name": "clara_garnes_garcia_mp07_uf2",
+  "version": "1.0.0",
+  "description": "UF2 - Landing con Bootstrap y PHP",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --watch scss:assets/css"
+  },
+  "keywords": [
+    "landing",
+    "bootstrap",
+    "php",
+    "html",
+    "css",
+    "bootstrap-v5",
+    "sass",
+    "scss",
+    "form"
+  ],
+  "author": "Clara Garnes García",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.0",
+    "autoprefixer": "^10.4.12",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
+    "postcss-cli": "^10.0.0"
+  }
+}

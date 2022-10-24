@@ -1,0 +1,16 @@
+@use '../custom' as *;
+
+#footer {
+    background: $black;
+    padding: 20px;
+    text-align: center;
+
+    p {
+        color:  $white;
+    }
+
+    .logoRRSS {
+        width: 20px;
+    }
+}
+

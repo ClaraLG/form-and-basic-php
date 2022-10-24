@@ -1,0 +1,15 @@
+
+@use '../custom' as *;
+
+#formRow {
+    height: 100vh;
+
+    #formLogin {
+        margin-top: 25%;
+        padding: 20px;
+    }
+
+    #acceder {
+        padding: 20px;
+    }
+}

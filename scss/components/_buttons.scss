@@ -1,0 +1,25 @@
+
+@use '../custom' as *;
+
+//Primary button
+
+.btn.btn-primary {
+    font-weight: 600
+}
+
+.btn.btn-primary:hover {
+    background-color: $secondary;
+    color: $white;
+}
+
+//Nav links
+
+.btn.btn-link {
+    font-weight: 700;
+    text-decoration: none;
+    color: $secondary;
+}
+
+.btn.btn-link:hover {
+    color: rgba($secondary, .7);
+}

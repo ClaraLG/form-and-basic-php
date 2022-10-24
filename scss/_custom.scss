@@ -1,0 +1,29 @@
+
+//Theme colors
+$yellow:  #ffe209;
+$gray: #3f3f3f;
+$orange:  #fdb314;
+
+//Theme color variables
+$primary:       $yellow;
+$secondary:     $gray;
+
+//Font-sizes
+$h1-font-size: 1rem * 3.2;
+$h2-font-size: 1rem * 2.5;
+
+//Headings font-weight
+$headings-font-weight: 700;
+
+//Media querys breakpoints
+$layout-breakpoint-small: 768px;
+$layout-breakpoint-medium: 1024px;
+
+
+//TODO OVERRIDE STYLES
+
+
+
+
+//Import Bootstrap 5
+@import "../node_modules/bootstrap/scss/bootstrap.scss";

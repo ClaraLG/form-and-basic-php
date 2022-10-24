@@ -1,0 +1,23 @@
+
+@use '../custom' as *;
+
+//PRIMARY BACKGROUND
+
+@mixin gradient {
+    background: linear-gradient(to right, rgba($primary,0.95), rgba($orange, 0.95));
+}
+
+//GENERAL BORDER-RADIUS
+
+@mixin radius {
+    border-radius: 5px;
+}
+
+//CENTERED POSITION
+
+@mixin centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
